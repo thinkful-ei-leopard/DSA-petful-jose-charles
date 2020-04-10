@@ -1,5 +1,5 @@
 import React from 'react';
-import landingImg from '../pictures/landingImg.jpg'
+import landingImg from '../../pictures/landingImg.jpg'
 import { Link } from 'react-router-dom';
 
 class Landing extends React.Component {
@@ -7,8 +7,7 @@ class Landing extends React.Component {
     render() { 
       return ( 
           <div>
-              <h1> Welcome to Petful!</h1>
-              <img src={landingImg} />
+              <img src={landingImg} alt='cat pic'/>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
                   labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
