@@ -16,6 +16,10 @@ router.delete('/', json, (req, res) => {
 
   PetService.dequeue(typeOfPet.type)
   res.status(204).end()
+  // display adopted success method
+  //once we get a 204
+  // change state from false to true, if true
+  // render 'success'
 })
 
 module.exports = router
