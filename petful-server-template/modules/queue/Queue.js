@@ -57,6 +57,19 @@ class Queue {
       this.dequeue()
     }
   }
+
+  showAll() {
+    if(this.isEmpty()) {
+      return `Queue is empty!`
+    }
+    let people = [];
+    let  node = this.first;
+     while(node) {
+    people.push(node.data);
+    node = node.next;
+    }
+    return people
+  }
 }
 
 module.exports = Queue
