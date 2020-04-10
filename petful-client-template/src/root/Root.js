@@ -1,9 +1,13 @@
 import React from 'react'
+import Landing from '../components/Landing'
 
-function Root() {
-  return <div>
-    <h1>Petful</h1>
-  </div>
+class Root extends React.Component {
+    render(){
+    return <>
+    <Landing />
+      </>
+  }
 }
+
 
 export default Root
