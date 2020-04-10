@@ -1,5 +1,6 @@
 import React from 'react';
 import landingImg from '../pictures/landingImg.jpg'
+import { Link } from 'react-router-dom';
 
 class Landing extends React.Component {
     state = {  }
@@ -14,7 +15,10 @@ class Landing extends React.Component {
                   esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
                   in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <button>Let's Get Started!</button>
+                <Link 
+                className = 'start-button'
+                to= '/adoption'
+                >Let's Get Started!</ Link>
           </div>
         
        );
