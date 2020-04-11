@@ -7,6 +7,8 @@ const petfulContext = React.createContext({
     response: null,
     setPets: () => {},
     setResponse: () => {},
+    addTouchedKeyToPets: () => {},
+    findPetByIdAndToggleTouched: () => {},
 })
 
 export default petfulContext
@@ -26,6 +28,15 @@ export class PetfulProvider extends React.Component {
         this.setState({ response: true })
     }
 
+    addTouchedKeyToPets = (arr) => {
+        arr.map(item => item.touched = false)
+    }
+
+    findPetByIdAndToggleTouched = (id) => {
+        const touchedPet = this.state.pets[id]
+        touchedPet.touched = true
+    }
+
     render() {
         const value = {
             pets: this.state.pets,
@@ -34,6 +45,8 @@ export class PetfulProvider extends React.Component {
             response: this.state.response,
             setResponse: this.setResponse,
             state: this.state,
+            addTouchedKeyToPets: this.addTouchedKeyToPets,
+            findPetByIdAndToggleTouched: this.findPetByIdAndToggleTouched,
         }
 
         return (

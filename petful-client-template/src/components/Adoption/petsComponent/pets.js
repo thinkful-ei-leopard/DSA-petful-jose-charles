@@ -6,25 +6,36 @@ export default class Pets extends React.Component {
     static contextType = petfulContext
 
     componentDidMount() {
-
     PetfulService.getPets()
-    .then(pets => this.context.setPets(pets))
+    .then(pets => {
+        this.context.addTouchedKeyToPets(pets)
+        this.context.setPets(pets)
+    })
     }
 
     getType = (key) => {
+        // this.context.findPetByIdAndToggleTouched(key)
+
         PetfulService.removePet(key)
-        .then(res => res.ok ? this.context.setResponse() : Promise.reject(res))
         .then(() => {
-            PetfulService.getPets()
-            .then(pets => this.context.setPets(pets))
+            // PetfulService.getPets()
+            // .then(pets => this.context.setPets(pets))
+            this.context.setResponse()
         })
     }
 
+    nextPets = () => {
+        PetfulService.getPets()
+        .then(pets => this.context.setPets(pets))
+    }
+
+    // add next button to re - render pets
+
     render() {
-        console.log(this.context.state)
+        // let pets = this.context.pets
         return (
             <>
-            {this.context.pets.map((item, index) => 
+            {this.context.pets.map((item, index) =>
             <li key={index}>
             <h3>{item.name}</h3>
             <img src={item.imageURL} alt='pet' />
@@ -37,7 +48,9 @@ export default class Pets extends React.Component {
             {' '}
             <span>Age: {item.age}</span>
             </div>
-            <button onClick={() => this.getType(index)}> Adopt Me!</button>
+            {this.context.response && <p>A pet has been adopted!</p>}
+            {this.context.response === true ? <button onClick={this.nextPets}>Next Pets!</button> : 
+            <button onClick={() => this.getType(index)}> Adopt Me!</button>}
             </li>)}
             </>
         )
