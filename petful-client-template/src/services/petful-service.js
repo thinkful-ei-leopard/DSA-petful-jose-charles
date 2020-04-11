@@ -6,7 +6,7 @@ const PetfulService = {
         .then(res => res.json())
     },
     removePet(type) {
-        if(type === 0) {
+        if(type === 'dog') {
             type = 'dogs'
         } else {
             type = 'cats'
@@ -20,6 +20,14 @@ const PetfulService = {
                 type: type,
             })
         })
+    },
+    getDogs() {
+        return fetch(`${config.API_ENDPOINT}/pets/dogs`)
+        .then(res => res.json())
+    },
+    getCats() {
+        return fetch(`${config.API_ENDPOINT}/pets/cats`)
+        .then(res => res.json())
     },
 }
 

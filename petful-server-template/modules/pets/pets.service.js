@@ -13,14 +13,19 @@ const PetService = {
   get() {
     return [pets.dogs.show(), pets.cats.show()]
   },
-
   dequeue(type) {
     if(type === 'dogs') {
       pets.dogs.dequeue()
     } else if(type === 'cats') {
       pets.cats.dequeue()
     }
-  }
+  },
+  getDogs() {
+    return [pets.dogs.show()]
+  },
+  getCats() {
+    return [pets.cats.show()]
+  },
 }
 
 // --------------------

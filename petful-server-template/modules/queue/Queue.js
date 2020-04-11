@@ -27,7 +27,7 @@ class Queue {
 
   dequeue() {
     if(this.first === null) {
-      return;
+      return 'no more data in this queue!';
     }
 
     const node = this.first;
@@ -41,6 +41,10 @@ class Queue {
   }
 
   show() {
+    if(this.first === null) {
+      return []
+    }
+
     return this.first.data
   }
 
@@ -56,6 +60,19 @@ class Queue {
     while(!this.isEmpty()) {
       this.dequeue()
     }
+  }
+
+  showAll() {
+    if(this.isEmpty()) {
+      return `Queue is empty!`
+    }
+    let people = [];
+    let  node = this.first;
+     while(node) {
+    people.push(node.data);
+    node = node.next;
+    }
+    return people
   }
 }
 
