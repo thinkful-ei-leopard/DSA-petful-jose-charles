@@ -14,7 +14,12 @@ router.post('/', json, (req, res) => {
   console.log(req.body)
   const name = req.body.name;
   PeopleService.enqueue(name)
-  res.status(202).end()
+  res.status(201).end()
+})
+
+router.delete('/', (req, res) => {
+PeopleService.dequeue()
+res.status(204).end()
 })
 
 module.exports = router
