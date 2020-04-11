@@ -7,7 +7,7 @@ const store = require('../../store')
 const people = new Queue()
 console.log(store.people)
 store.people.forEach(person => people.enqueue(person))
-store.people.forEach(person => console.log(people))
+store.people.forEach(person => console.log(person))
 
 // --------------------
 

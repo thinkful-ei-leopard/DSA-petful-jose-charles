@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
 
 router.post('/', json, (req, res) => {
   console.log(req.body)
-  const name = req.body.name;
-  PeopleService.enqueue(name)
+  const person = req.body.person;
+  PeopleService.enqueue(person)
   res.status(201).end()
 })
 
